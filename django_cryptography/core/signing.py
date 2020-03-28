@@ -189,7 +189,7 @@ class FernetSigner(Signer):
         :rtype: None
         """
         self.digest = hashes.SHA256()
-        self.key = force_bytes(key or settings.SECRET_KEY)
+        self.key = force_bytes(key or settings.CRYPTOGRAPHY_KEY or settings.SECRET_KEY)
 
     def signature(self, value):
         """
